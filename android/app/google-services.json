@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "613818040318",
+    "project_id": "hivefitness-d6d3a",
+    "storage_bucket": "hivefitness-d6d3a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:613818040318:android:ea31797972a3ec79e20aaf",
+        "android_client_info": {
+          "package_name": "com.example.hive_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2pl5S7RZLDobfq_mHezRlEaXd2K0NVHY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
