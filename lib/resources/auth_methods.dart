@@ -35,54 +35,41 @@ class AuthMethods {
   }) async {
     String res = "Please fill in all the required fields";
     try {
-      if (email.isNotEmpty ||
-          password.isNotEmpty ||
-          username.isNotEmpty ||
-          age.isNotEmpty ||
-          height.isNotEmpty ||
-          weight.isNotEmpty ||
-          gender.isNotEmpty ||
-          bio.isNotEmpty ||
-          // ignore: unnecessary_null_comparison
-          file != null) {
-        // Register the user
-        UserCredential cred = await _auth.createUserWithEmailAndPassword(
-          email: email,
-          password: password,
-        );
+      // Register the user
+      UserCredential cred = await _auth.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
 
-        // ignore: avoid_print
-        print(cred.user!.uid);
-        /*The auth method used returns a Future type data "userCredential", thus await needs to be used to wait for the data
+      // ignore: avoid_print
+      print(cred.user!.uid);
+      /*The auth method used returns a Future type data "userCredential", thus await needs to be used to wait for the data
         The variable cred will return many information which can be accessed by "." */
 
-        String photoUrl = await StorageMethods()
-            .uploadImageToStorage('profilepics', file, false);
+      String photoUrl = await StorageMethods()
+          .uploadImageToStorage('profilepics', file, false);
 
-        // Add user to our database
+      // Add user to our database
 
-        model.User user = model.User(
-          username: username,
-          uid: cred.user!.uid,
-          email: email,
-          bio: bio,
-          age: age,
-          height: height,
-          weight: weight,
-          gender: gender,
-          photoUrl: photoUrl,
-          following: [],
-          followers: [],
-        );
+      model.User user = model.User(
+        username: username,
+        uid: cred.user!.uid,
+        email: email,
+        bio: bio,
+        age: age,
+        height: height,
+        weight: weight,
+        gender: gender,
+        photoUrl: photoUrl,
+        following: [],
+        followers: [],
+      );
 
-        await _firestore.collection('users').doc(cred.user!.uid).set(
-              user.toJson(),
-            );
+      await _firestore.collection('users').doc(cred.user!.uid).set(
+            user.toJson(),
+          );
 
-        res = "success";
-      } else {
-        res = "Please fill in all required fields";
-      }
+      res = "success";
     } on FirebaseAuthException catch (err) {
       if (err.code == 'invalid-email') {
         res = 'The email is not formatted correctly';

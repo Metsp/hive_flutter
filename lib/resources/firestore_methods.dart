@@ -21,8 +21,8 @@ class FirestoreMethods {
       String photoUrl =
           await StorageMethods().uploadImageToStorage('posts', file, true);
 
-      String postId = const Uuid()
-          .v1(); // Using the UUID package, we can generate a unique ID based on time
+      String postId = const Uuid().v1();
+      // Using the UUID package to can generate a unique ID based on time
 
       Post post = Post(
         description: description,
