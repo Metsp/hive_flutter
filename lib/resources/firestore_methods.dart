@@ -113,6 +113,7 @@ class FirestoreMethods {
       // Update the "reports" field with an empty list
       await postRef.update({'reports': []});
     } catch (err) {
+      // ignore: avoid_print
       print(err.toString());
     }
   }
@@ -122,6 +123,7 @@ class FirestoreMethods {
     String postId,
     String uid,
   ) async {
+    // ignore: unused_local_variable
     String result = '';
     try {
       DocumentSnapshot snap =

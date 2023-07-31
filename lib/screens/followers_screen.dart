@@ -3,7 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/utils/colors.dart';
 import 'package:hive_flutter/widgets/user_profile_card.dart';
-
 import '../utils/utils.dart';
 
 class FollowersScreen extends StatefulWidget {
@@ -77,7 +76,7 @@ class _FollowingScreenState extends State<FollowersScreen> {
         backgroundColor: hiveWhite,
         elevation: 0.5,
         title: const Text(
-          'Following',
+          'Followers',
           style: TextStyle(
             color: hiveBlack,
           ),

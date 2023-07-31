@@ -93,6 +93,7 @@ class _FeedScreenState extends State<FeedScreen> {
         title: SvgPicture.asset(
           'assets/hive_logo_banner_dark.svg',
           height: 64,
+          // ignore: deprecated_member_use
         ),
         actions: [
           Padding(
